@@ -1,20 +1,21 @@
 class Jump {
-  constructor(height, width) {
-    this.height = height;
-    this.width = width;
+  constructor(game,player) {
     this.jumpEnable = true;
-    this.init();
+    this.init(game,player);
   }
-  init(){
-      console.log("Jumping Initialized");
+  init(game,player){
+      cursors = game.input.keyboard.createCursorKeys();
+      this.player = player;
   }
-  jump(player){
-      if(this.jumpEnable === true){
-        player.body.velocity.y = -450;
-      }
-      this.jumpEnable = false;
+  checkJump(){
+      
+    if (cursors.up.isDown && this.jumpEnable === true){
+        this.player.body.velocity.y = -450;
+    }
+    //this.jumpEnable = false;
   }
   enableJump(){
       this.jumpEnable = true;
   }
+    
 }

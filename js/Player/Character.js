@@ -1,19 +1,21 @@
 class Character {
-  constructor(height, width) {
+  constructor(game) {
     this.health = 100;
-    this.init();  
+      
+    this.player = game.add.sprite(32, game.world.height - 250, 'dude');
+    this.init(game);
+    game.physics.arcade.enable(this.player);
+    this.player.body.gravity.y = 1000;
   }
-  init(){
-      console.log("Player Initiated");
-      var charJump = new Jump();
+  init(game){
+      console.log(this.player);
+      this.playerJump = new Jump(game,this.player);
+      this.playerCollision = new Collision();
+      this.playerMovement = new PlayerMovement(this.player);
   }
-  jump(player){
-      if(this.jumpEnable === true){
-        player.body.velocity.y = -450;
-      }
-      this.jumpEnable = false;
-  }
-  enableJump(){
-      this.jumpEnable = true;
+  update(){
+      this.playerCollision.checkCollision(game,this.player, blockedLayer);
+      this.playerJump.checkJump();
+      this.playerMovement.checkInput();
   }
 }
