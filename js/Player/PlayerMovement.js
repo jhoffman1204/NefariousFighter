@@ -9,8 +9,6 @@ class PlayerMovement {
       this.player.animations.add('left', [12, 13, 14], 10, true);
       this.player.animations.add('right', [24, 25, 26], 10, true);
       
-      this.test   = game.input.keyboard.addKey(Phaser.Keyboard.T);
-      
       if(this.playerNumber === 1){
         this.attack_left   = game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.attack_right  = game.input.keyboard.addKey(Phaser.Keyboard.D);
@@ -21,6 +19,8 @@ class PlayerMovement {
         this.attack_right  = game.input.keyboard.addKey(Phaser.Keyboard.L);
           console.log("reached 2");
       }
+      
+      
   }
   checkInput(){
       

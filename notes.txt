@@ -1,0 +1,4 @@
+Nefarious Fighter Notes
+
+Things to do:
+pass an object down to other classes with getters so you dont have to pass down things like "game" and "player"

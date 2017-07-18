@@ -17,10 +17,12 @@ class Character {
       this.playerJump = new Jump(game,this.player,this.playerNumber);
       this.playerCollision = new Collision();
       this.playerMovement = new PlayerMovement(this.player,this.playerNumber);
+      this.playerAttack = new Attack(this.player,this.playerNumber);
   }
   update(){
       this.playerCollision.checkCollision(game,this.player, blockedLayer);
       this.playerJump.checkJump();
       this.playerMovement.checkInput();
+      this.playerAttack.checkInput();
   }
 }

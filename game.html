@@ -25,10 +25,9 @@ function preload() {
     game.load.script('Collision', 'js/World/Collision.js');
     game.load.script('Jump', 'js/Player/Jump.js');
     game.load.script('PlayerMovement', 'js/Player/PlayerMovement.js');
+    game.load.script('Attack', 'js/Player/Attack.js');
     
-    game.load.image('sky', 'assets/sky.png');
-    game.load.image('ground', 'assets/platform.png');
-    game.load.image('star', 'assets/star.png');
+    game.load.image('waterbolt', 'assets/waterbolt.png');
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     game.load.spritesheet('mage', 'assets/mage.png', 96, 96);
     // Load Json Map Level
@@ -45,40 +44,14 @@ var cursors;
 function create() {
 
    
-    this.map = this.game.add.tilemap('Platform');
+    this.map = game.add.tilemap('Platform');
     this.map.addTilesetImage('smallTiles', 'smallTiles');
     this.backgroundlayer = this.map.createLayer('background');
     this.backgroundlayer2 = this.map.createLayer('background2');
-    this.backgroundlayer.resizeWorld();
     blockedLayer = this.map.createLayer('blocked');
     this.map.setCollisionBetween(1, 2000, true, 'blocked');
-    
-    //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-
-    //  We need to enable physics on the player
-    
-
-    
-    //  Player physics properties. Give the little guy a slight bounce.
-    //player.body.bounce.y = 0.2;
-    
-    //player.body.collideWorldBounds = true;
-    //game.camera.follow(player);
-    
-    //  Our two animations, walking left and right.
-
-
-        
-    //  Our controls.
-    
-    // The player and its settings
-    
-    initObjects();
-    //gravity.init();
-    //gravity.enableGravity(player);
-    
     character1 = new Character(game, 1);
     character2 = new Character(game, 2);
     
@@ -92,6 +65,7 @@ function update() {
     
     character1.update();
     character2.update();
+    
     //  Reset the players velocity (movement)
     //player.body.velocity.x = 0;
     
