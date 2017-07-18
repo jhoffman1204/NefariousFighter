@@ -1,17 +1,22 @@
 class Character {
-  constructor(game) {
+  constructor(game,playerNumber) {
     this.health = 100;
+    this.playerNumber = playerNumber;
       
-    this.player = game.add.sprite(32, game.world.height - 250, 'dude');
+      if(playerNumber === 1){
+       this.player = game.add.sprite(100, game.world.height - 350, 'mage');   
+      }
+      else if(playerNumber === 2){
+          this.player = game.add.sprite(600, game.world.height - 350, 'mage');
+      }
     this.init(game);
     game.physics.arcade.enable(this.player);
     this.player.body.gravity.y = 1000;
   }
   init(game){
-      console.log(this.player);
-      this.playerJump = new Jump(game,this.player);
+      this.playerJump = new Jump(game,this.player,this.playerNumber);
       this.playerCollision = new Collision();
-      this.playerMovement = new PlayerMovement(this.player);
+      this.playerMovement = new PlayerMovement(this.player,this.playerNumber);
   }
   update(){
       this.playerCollision.checkCollision(game,this.player, blockedLayer);
