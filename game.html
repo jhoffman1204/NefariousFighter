@@ -26,8 +26,13 @@ function preload() {
     game.load.script('Jump', 'js/Player/Jump.js');
     game.load.script('PlayerMovement', 'js/Player/PlayerMovement.js');
     game.load.script('Attack', 'js/Player/Attack.js');
+    game.load.script('PlayerStats', 'js/Player/PlayerStats.js');
+    game.load.script('PlayerInteractionManager', 'js/Managers/PlayerInteractionManager.js');
+    
+    
     
     game.load.image('waterbolt', 'assets/waterbolt.png');
+    game.load.spritesheet('explosion', 'assets/explosionSpriteSheet.png',128,120);
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     game.load.spritesheet('mage', 'assets/mage.png', 96, 96);
     // Load Json Map Level
@@ -54,6 +59,9 @@ function create() {
 
     character1 = new Character(game, 1);
     character2 = new Character(game, 2);
+    
+    PlayerInteractionManager.setPlayer1(character1);
+    PlayerInteractionManager.setPlayer2(character2);
     
 }
 function initObjects(){

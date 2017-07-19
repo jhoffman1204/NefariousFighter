@@ -3,26 +3,34 @@ class Jump {
     this.playerNumber = playerNumber;
     this.jumpEnable = true;
     this.init(game,player);
+    this.player = player;
   }
   init(game,player){
       cursors = game.input.keyboard.createCursorKeys();
-      this.player = player;
       if(this.playerNumber === 1){
         this.jump   = game.input.keyboard.addKey(Phaser.Keyboard.W);
       }
       else if(this.playerNumber === 2){
         this.jump   = game.input.keyboard.addKey(Phaser.Keyboard.I);
       }
+      
+      this.jumpTimer = game.time.create(false);
+      this.jumpAvailable = true;
   }
   checkJump(){
       
     if (this.jump.isDown && this.jumpEnable === true){
-        this.player.body.velocity.y = -450;
+        this.player.body.velocity.y = -550;
+        this.jumpEnable = false;
     }
-    //this.jumpEnable = false;
+    if(this.player.body.velocity.y === 0){
+        this.enableJump();
+    }
   }
   enableJump(){
-      this.jumpEnable = true;
+      if(this.jumpEnable === false){
+        this.jumpEnable = true;
+      }
   }
     
 }

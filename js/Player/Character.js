@@ -14,15 +14,25 @@ class Character {
     this.player.body.gravity.y = 1000;
   }
   init(game){
+      this.playerStats = new PlayerStats(this.player);
       this.playerJump = new Jump(game,this.player,this.playerNumber);
-      this.playerCollision = new Collision();
+      this.playerCollision = new Collision(this.player,this);
       this.playerMovement = new PlayerMovement(this.player,this.playerNumber);
-      this.playerAttack = new Attack(this.player,this.playerNumber);
+      this.playerAttack = new Attack(this.player,this.playerNumber,this);
   }
   update(){
       this.playerCollision.checkCollision(game,this.player, blockedLayer);
       this.playerJump.checkJump();
       this.playerMovement.checkInput();
       this.playerAttack.checkInput();
+  }
+  getPlayerStats(){
+      return this.playerStats;
+  }
+  getPlayerCollision(){
+      return this.playerCollision;
+  }
+  getPlayer(){
+      return this.player;
   }
 }

@@ -12,12 +12,10 @@ class PlayerMovement {
       if(this.playerNumber === 1){
         this.attack_left   = game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.attack_right  = game.input.keyboard.addKey(Phaser.Keyboard.D);
-          console.log("reached 1");
       }
       else if(this.playerNumber === 2){
         this.attack_left   = game.input.keyboard.addKey(Phaser.Keyboard.J);
         this.attack_right  = game.input.keyboard.addKey(Phaser.Keyboard.L);
-          console.log("reached 2");
       }
       
       
