@@ -20,7 +20,7 @@ class Jump {
   checkJump(){
       
     if (this.jump.isDown && this.jumpEnable === true){
-        this.player.body.velocity.y = -550;
+        this.player.body.velocity.y = -750;
         this.jumpEnable = false;
     }
     if(this.player.body.velocity.y === 0){

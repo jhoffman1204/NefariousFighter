@@ -2,11 +2,15 @@ class Collision {
   constructor(player,character) {
     this.player = player;
     this.character = character;
-    this.init();
     this.enemyPlayer;
   }
   init(){
-      
+      if(this.character.getPlayerNumber() === 1){
+        this.enemyPlayer = PlayerInteractionManager.getPlayer2().getPlayer();
+      }
+      if(this.character.getPlayerNumber() === 2){
+        this.enemyPlayer = PlayerInteractionManager.getPlayer1().getPlayer();
+      }
   }
   checkCollision(game,playerCollide,blockedLayer){
       game.physics.arcade.collide(playerCollide, blockedLayer);
@@ -20,8 +24,6 @@ class Collision {
         this.currentExplosion.animations.play('explode',10, false,false);
   }
   checkCollisionFireBall(fireball){
-      this.enemyPlayer = PlayerInteractionManager.getPlayer2().getPlayer();
-      
       game.physics.arcade.overlap(this.enemyPlayer, fireball, this.test, null, this);
   }
   test(){

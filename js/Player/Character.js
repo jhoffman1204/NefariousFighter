@@ -4,10 +4,10 @@ class Character {
     this.playerNumber = playerNumber;
       
       if(playerNumber === 1){
-       this.player = game.add.sprite(100, game.world.height - 350, 'mage');   
+       this.player = game.add.sprite(100, game.world.height - 550, 'mage');   
       }
       else if(playerNumber === 2){
-          this.player = game.add.sprite(600, game.world.height - 350, 'mage');
+          this.player = game.add.sprite(600, game.world.height - 550, 'mage');
       }
     this.init(game);
     game.physics.arcade.enable(this.player);
@@ -19,6 +19,9 @@ class Character {
       this.playerCollision = new Collision(this.player,this);
       this.playerMovement = new PlayerMovement(this.player,this.playerNumber);
       this.playerAttack = new Attack(this.player,this.playerNumber,this);
+  }
+  initCollision(){
+      this.playerCollision.init();
   }
   update(){
       this.playerCollision.checkCollision(game,this.player, blockedLayer);
@@ -34,5 +37,8 @@ class Character {
   }
   getPlayer(){
       return this.player;
+  }
+  getPlayerNumber(){
+      return this.playerNumber;
   }
 }

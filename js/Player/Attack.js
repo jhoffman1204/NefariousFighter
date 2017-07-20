@@ -14,9 +14,11 @@ class Attack {
       this.attackTimer = game.time.create(false);
       this.attackAvailable = true;
       
-      this.firebolts = [];
+      this.leftFirebolts = [];
+      this.rightFirebolts = [];
       for(var i = 0; i < 10; i++){
-          this.firebolts[i] = game.add.sprite(-200, -200, 'waterbolt');
+          this.leftFirebolts[i] = game.add.sprite(-200, -200, 'waterboltLeft');
+          this.rightFirebolts[i] = game.add.sprite(-200, -200, 'waterboltRight');
       }
   }
   checkInput(){
@@ -24,12 +26,12 @@ class Attack {
           this.player.body.velocity.x = 0;
           this.player.body.velocity.y = 0;
           if(this.attackAvailable === true){
-            this.firebolt = this.firebolts[0];
+            this.firebolt = this.leftFirebolts[0];
             this.firebolt.x = this.player.x;
             this.firebolt.y = this.player.y;
             
             game.physics.arcade.enable(this.firebolt);
-            this.firebolt.body.velocity.x = -350;
+            this.firebolt.body.velocity.x = -550;
             this.attackTimer.repeat(500, 0,this.startTimer, this);
             this.attackTimer.start();
             this.attackAvailable = false;
@@ -39,12 +41,12 @@ class Attack {
           this.player.body.velocity.x = 0;
           this.player.body.velocity.y = 0;
           if(this.attackAvailable === true){
-            this.firebolt = this.firebolts[0];
+            this.firebolt = this.rightFirebolts[0];
             this.firebolt.x = this.player.x;
             this.firebolt.y = this.player.y;
             
             game.physics.arcade.enable(this.firebolt);
-            this.firebolt.body.velocity.x = 350;
+            this.firebolt.body.velocity.x = 750;
             this.attackTimer.repeat(500, 0,this.startTimer, this);
             this.attackTimer.start();
             this.attackAvailable = false;
@@ -54,12 +56,12 @@ class Attack {
           this.player.body.velocity.x = 0;
           this.player.body.velocity.y = 0;
           if(this.attackAvailable === true){
-            this.firebolt = this.firebolts[0];
+            this.firebolt = this.leftFirebolts[0];
             this.firebolt.x = this.player.x;
             this.firebolt.y = this.player.y;
             
             game.physics.arcade.enable(this.firebolt);
-            this.firebolt.body.velocity.x = -350;
+            this.firebolt.body.velocity.x = -850;
             this.attackTimer.repeat(500, 0,this.startTimer, this);
             this.attackTimer.start();
             this.attackAvailable = false;
@@ -69,12 +71,12 @@ class Attack {
           this.player.body.velocity.x = 0;
           this.player.body.velocity.y = 0;
           if(this.attackAvailable === true){
-            this.firebolt = this.firebolts[0];
+            this.firebolt = this.rightFirebolts[0];
             this.firebolt.x = this.player.x;
             this.firebolt.y = this.player.y;
             
             game.physics.arcade.enable(this.firebolt);
-            this.firebolt.body.velocity.x = 350;
+            this.firebolt.body.velocity.x = 650;
             this.attackTimer.repeat(500, 0,this.startTimer, this);
             this.attackTimer.start();
             this.attackAvailable = false;
@@ -82,10 +84,20 @@ class Attack {
       }
    
       if(this.playerNumber === 1){
-        this.character.getPlayerCollision(). checkCollisionFireBall(this.firebolts[0]);
+        for(var i = 0; i < this.leftFirebolts.length; i++){
+            this.character.getPlayerCollision(). checkCollisionFireBall(this.leftFirebolts[0]);
+          }
+          for(var i = 0; i < this.rightFirebolts.length; i++){
+            this.character.getPlayerCollision(). checkCollisionFireBall(this.rightFirebolts[0]);
+          }
       }
       else if(this.playerNumber === 2){
-        this.character.getPlayerCollision(). checkCollisionFireBall(this.firebolts[0]);
+          for(var i = 0; i < this.leftFirebolts.length; i++){
+            this.character.getPlayerCollision(). checkCollisionFireBall(this.leftFirebolts[0]);
+          }
+          for(var i = 0; i < this.rightFirebolts.length; i++){
+            this.character.getPlayerCollision(). checkCollisionFireBall(this.rightFirebolts[0]);
+          }
       }
       
   }

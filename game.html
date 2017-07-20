@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 
-var game = new Phaser.Game(800, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1200, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
 
@@ -31,7 +31,8 @@ function preload() {
     
     
     
-    game.load.image('waterbolt', 'assets/waterbolt.png');
+    game.load.image('waterboltLeft', 'assets/waterboltLeft.png');
+    game.load.image('waterboltRight', 'assets/waterboltRight.png');
     game.load.spritesheet('explosion', 'assets/explosionSpriteSheet.png',128,120);
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     game.load.spritesheet('mage', 'assets/mage.png', 96, 96);
@@ -39,17 +40,14 @@ function preload() {
     game.load.image('smallTiles', 'assets/smallTiles.png');
     game.load.tilemap('mapSmall', 'assets/mapSmall.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.tilemap('Platform', 'assets/Platform.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.tilemap('venusMap', 'assets/venusMap.json', null, Phaser.Tilemap.TILED_JSON);
 }
 
-var player;
-var platforms;
-var cursors;
-
-
+var cursors; 
+    
 function create() {
 
-   
-    this.map = game.add.tilemap('Platform');
+    this.map = game.add.tilemap('venusMap');
     this.map.addTilesetImage('smallTiles', 'smallTiles');
     this.backgroundlayer = this.map.createLayer('background');
     this.backgroundlayer2 = this.map.createLayer('background2');
@@ -63,19 +61,18 @@ function create() {
     PlayerInteractionManager.setPlayer1(character1);
     PlayerInteractionManager.setPlayer2(character2);
     
+    character1.initCollision();
+    character2.initCollision();
+    
+    
 }
 function initObjects(){
     
 }
 function update() {
 
-    //  Collide the player and the stars with the platforms
-    
     character1.update();
     character2.update();
-    
-    //  Reset the players velocity (movement)
-    //player.body.velocity.x = 0;
     
 
 
