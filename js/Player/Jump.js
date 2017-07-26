@@ -9,9 +9,11 @@ class Jump {
       cursors = game.input.keyboard.createCursorKeys();
       if(this.playerNumber === 1){
         this.jump   = game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.fall   = game.input.keyboard.addKey(Phaser.Keyboard.S);
       }
       else if(this.playerNumber === 2){
         this.jump   = game.input.keyboard.addKey(Phaser.Keyboard.I);
+        this.fall   = game.input.keyboard.addKey(Phaser.Keyboard.K);  
       }
       
       this.jumpTimer = game.time.create(false);
@@ -26,6 +28,9 @@ class Jump {
     if(this.player.body.velocity.y === 0){
         this.enableJump();
     }
+    if(this.player.body.velocity.y != 0 && this.fall.isDown){
+        this.player.body.velocity.y = 750;
+    }  
   }
   enableJump(){
       if(this.jumpEnable === false){

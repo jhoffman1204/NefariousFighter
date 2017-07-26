@@ -14,12 +14,20 @@
 
 <script type="text/javascript">
 
-var game = new Phaser.Game(1200, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1280, 800, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
 function preload() {
-
+    
+    //GUI Scripts
+    game.load.script('mapLoader', 'js/World/mapLoader.js');
+    game.load.script('MainMenu', 'js/GUI/MainMenu.js');
+    game.load.script('CharacterSelect', 'js/GUI/CharacterSelect.js');
+    
+    // Game World Scripts
     game.load.script('Gravity', 'js/Managers/GravityManager.js');
     game.load.script('Ladder', 'js/World/Ladder.js');
+    
+    // Character Scripts
     game.load.script('Character', 'js/Player/Character.js');
     game.load.script('PlayerCollision', 'js/Player/PlayerCollision.js');
     game.load.script('Collision', 'js/World/Collision.js');
@@ -27,54 +35,52 @@ function preload() {
     game.load.script('PlayerMovement', 'js/Player/PlayerMovement.js');
     game.load.script('Attack', 'js/Player/Attack.js');
     game.load.script('PlayerStats', 'js/Player/PlayerStats.js');
+    
+    // Manager Scripts
     game.load.script('PlayerInteractionManager', 'js/Managers/PlayerInteractionManager.js');
+    game.load.script('CharacterGUI', 'js/GUI/CharacterGUI.js');
     
     
+    // Game Interface Images
+    game.load.image ('WelcomeScreen','assets/WelcomeScreen.png');
+    game.load.image ('PlayButton','assets/play_button.png');
+    game.load.image ('ControlsButton','assets/controls_button.png');
+    game.load.image ('CharacterSelect','assets/CharacterSelect.png');
+    game.load.image ('SelectButton','assets/SelectButton.png');
     
+    
+    // Casting images
     game.load.image('waterboltLeft', 'assets/waterboltLeft.png');
     game.load.image('waterboltRight', 'assets/waterboltRight.png');
     game.load.spritesheet('explosion', 'assets/explosionSpriteSheet.png',128,120);
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    
+    //Character SpirteSheets
     game.load.spritesheet('mage', 'assets/mage.png', 96, 96);
-    // Load Json Map Level
+    
+    // Map Levels and Tile Sheets
     game.load.image('smallTiles', 'assets/smallTiles.png');
     game.load.tilemap('mapSmall', 'assets/mapSmall.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.tilemap('Platform', 'assets/Platform.json', null, Phaser.Tilemap.TILED_JSON);
     game.load.tilemap('venusMap', 'assets/venusMap.json', null, Phaser.Tilemap.TILED_JSON);
+    
+    // Character Profile Images
+    game.load.image('MinatoProfile', 'assets/CharacterPictures/MinatoProfile.png');
+    
+    //Controller
+    game.load.script('Controller', 'js/Controller.js');
 }
 
-var cursors; 
+var cursors;
+var gameStarted = false;
     
 function create() {
-
-    this.map = game.add.tilemap('venusMap');
-    this.map.addTilesetImage('smallTiles', 'smallTiles');
-    this.backgroundlayer = this.map.createLayer('background');
-    this.backgroundlayer2 = this.map.createLayer('background2');
-    blockedLayer = this.map.createLayer('blocked');
-    this.map.setCollisionBetween(1, 2000, true, 'blocked');
-    game.physics.startSystem(Phaser.Physics.ARCADE);
-
-    character1 = new Character(game, 1);
-    character2 = new Character(game, 2);
     
-    PlayerInteractionManager.setPlayer1(character1);
-    PlayerInteractionManager.setPlayer2(character2);
-    
-    character1.initCollision();
-    character2.initCollision();
-    
-    
-}
-function initObjects(){
+    Controller.createWelcomePage();
     
 }
 function update() {
-
-    character1.update();
-    character2.update();
     
-
+    Controller.update();
 
 }
 

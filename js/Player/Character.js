@@ -14,7 +14,7 @@ class Character {
     this.player.body.gravity.y = 1000;
   }
   init(game){
-      this.playerStats = new PlayerStats(this.player);
+      this.playerStats = new PlayerStats(this);
       this.playerJump = new Jump(game,this.player,this.playerNumber);
       this.playerCollision = new Collision(this.player,this);
       this.playerMovement = new PlayerMovement(this.player,this.playerNumber);

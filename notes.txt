@@ -3,3 +3,7 @@ Nefarious Fighter Notes
 Things to do:
 pass an object down to other classes with getters so you dont have to pass down things like "game" and "player"	(Completed)
 make it so that the player has to use the q and e keys instead of combinations of the movement					(Completed)
+
+Add a Victory Banner when a player wins	()
+Add a main menu before playing	()
+
