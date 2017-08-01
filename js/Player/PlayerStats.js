@@ -13,13 +13,14 @@ class PlayerStats {
   }
   setHealth(health){
       this.health = health;
+      console.log(health);
   }
   getHealth(){
       return this.health;
   }
   checkHealth(){
-      if(this.getHealth() === 0){
-          console.log("Player 1 Wins");
+      if(this.getHealth() <= 0){
+          CharacterSelect.displayWinBanner(3 - this.character.getPlayerNumber());
       }
   }
 }

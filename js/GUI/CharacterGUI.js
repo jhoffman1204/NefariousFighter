@@ -16,13 +16,19 @@ class CharacterGUI {
             this.playerTwoProfile.fixedToCamera = true;
       }
       
-      this.initializeHealth(80,playerNumber);
+      this.initializeHealth(this.character.getPlayerStats().getHealth(),playerNumber);
   }
   determineHealth(health, playernumber){
       
-      var healthTemp = health;
-      var firstDigit = Math.floor(health / 10);
-      var secondDigit = health % 10;
+      if(health <= 0){
+            var firstDigit = 0;
+            var secondDigit = 0;
+        }
+        else{
+            var healthTemp = health;
+            var firstDigit = Math.floor(health / 10);
+            var secondDigit = health % 10;
+        }
       
       //console.log(firstDigit);
       //uconsole.log(secondDigit);
@@ -64,9 +70,15 @@ class CharacterGUI {
          
       this.initialized = true;
       
-      var healthTemp = health;
-      var firstDigit = Math.floor(health / 10);
-      var secondDigit = health % 10;
+        if(health <= 0){
+            var firstDigit = 0;
+            var secondDigit = 0;
+        }
+        else{
+            var healthTemp = health;
+            var firstDigit = Math.floor(health / 10);
+            var secondDigit = health % 10;
+        }
       
       //console.log(firstDigit);
       //uconsole.log(secondDigit);

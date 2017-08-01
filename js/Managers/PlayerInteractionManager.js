@@ -8,6 +8,7 @@ var PlayerInteractionManager = {
         this.damageAnimationTimer = game.time.create(false);
         this.damageAnimationTimer.repeat(500, 1000,this.playerAnimationAvailable, this);
         this.damageAnimationTimer.start();
+        console.log("new");
     },
     setPlayer1: function(character){
         this.player1 = character;

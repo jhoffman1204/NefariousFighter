@@ -24,17 +24,16 @@ class Jump {
   checkJump(){
       
     if (this.jump.isDown && this.jumpEnable === true){
-        this.player.body.velocity.y = -750;
+        this.player.body.velocity.y = -550;
         this.jumpEnable = false;
     }
     else if(this.jump.isDown && this.secondJumpEnable === true){
-        this.player.body.velocity.y = -750;
+        this.player.body.velocity.y = -550;
         this.secondJumpEnable = false;
         this.anyJumpEnable = false;
     }
     if(this.jump.isUp && (this.player.body.velocity.y > 200 || this.player.body.velocity.y < -200) && this.anyJumpEnable === true){
         this.secondJumpEnable = true;
-        console.log(this.player.body.velocity.y);
     }  
     
     if(this.player.body.velocity.y === 0){

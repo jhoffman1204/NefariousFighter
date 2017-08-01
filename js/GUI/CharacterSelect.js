@@ -133,5 +133,10 @@ var CharacterSelect = {
     },
     getSelectButtons: function(){
         return this.selectButtons;
+    },
+    displayWinBanner(playerNumber){
+        var text = "Player " + playerNumber + " Wins!"
+        this.winText = game.add.text(300, 200, text, this.style);
+        this.winText.fontSize = 100;
     }
 }

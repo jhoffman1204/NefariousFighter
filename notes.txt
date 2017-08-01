@@ -6,11 +6,11 @@ make it so that the player has to use the q and e keys instead of combinations o
 
 Add a main menu before playing	(Completed)
 
-Add a Victory Banner when a player wins	()
-Have player 1 and two choose their plays	()
-create array indices with the correct left,right and idle animations	()
-have actually different animations for every character selected			()
-have a "choose map" screen where a map can be chosen		()
+Add a Victory Banner when a player wins									(Completed)
+Have player 1 and two choose their plays								(Completed)
+create array indices with the correct left,right and idle animations	(Completed)
+have actually different animations for every character selected			(Completed)
+have a "choose map" screen where a map can be chosen					()
 
 
 

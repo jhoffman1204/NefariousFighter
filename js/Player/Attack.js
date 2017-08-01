@@ -28,7 +28,7 @@ class Attack {
           if(this.attackAvailable === true){
             this.firebolt = this.leftFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
-            this.firebolt.y = this.player.y;
+            this.firebolt.y = this.player.y + 40;
             
             game.physics.arcade.enable(this.firebolt);
             this.firebolt.body.velocity.x = -850;
@@ -41,7 +41,7 @@ class Attack {
           if(this.attackAvailable === true){
             this.firebolt = this.rightFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
-            this.firebolt.y = this.player.y;
+            this.firebolt.y = this.player.y + 40;
             
             game.physics.arcade.enable(this.firebolt);
             this.firebolt.body.velocity.x = 750;
@@ -54,7 +54,7 @@ class Attack {
           if(this.attackAvailable === true){
             this.firebolt = this.leftFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
-            this.firebolt.y = this.player.y;
+            this.firebolt.y = this.player.y + 40;
             
             game.physics.arcade.enable(this.firebolt);
             this.firebolt.body.velocity.x = -850;
@@ -67,7 +67,7 @@ class Attack {
           if(this.attackAvailable === true){
             this.firebolt = this.rightFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
-            this.firebolt.y = this.player.y;
+            this.firebolt.y = this.player.y + 40;
             
             game.physics.arcade.enable(this.firebolt);
             this.firebolt.body.velocity.x = 650;
