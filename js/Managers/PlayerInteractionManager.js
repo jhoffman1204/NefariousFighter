@@ -1,6 +1,8 @@
 var PlayerInteractionManager = {
     player1: null,
     player2: null,
+    character1: null,
+    character2: null,
     playerAnimationAvailable: true,
     init: function(){
         this.damageAnimationTimer = game.time.create(false);
@@ -30,5 +32,19 @@ var PlayerInteractionManager = {
     },
     getAnimationAvailable: function(){
         return this.playerAnimationAvailable;
+    },
+    setCharacter1: function(character1){
+        this.character1 = character1;
+        this.player1 = character1.getPlayer();
+    },
+    setCharacter2: function(character2){
+        this.character2 = character2;
+        this.player2 = character1.getPlayer();
+    },
+    getCharacter1: function(){
+        return this.character1;
+    },
+    getCharacter2: function(){
+        return this.character2;    
     }
 }

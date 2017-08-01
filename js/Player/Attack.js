@@ -1,6 +1,5 @@
 class Attack {
-  constructor(player,playerNumber,character) {
-    this.playerNumber = playerNumber;
+  constructor(player,character) {
     this.character = character;
     this.jumpEnable = true;
     this.init();
@@ -25,7 +24,7 @@ class Attack {
       }
   }
   checkInput(){
-      if(this.attackButton1.isDown && this.playerNumber === 1){
+      if(this.attackButton1.isDown && this.character.getPlayerNumber() === 1){
           if(this.attackAvailable === true){
             this.firebolt = this.leftFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
@@ -38,7 +37,7 @@ class Attack {
             this.attackAvailable = false;
           }
       }
-      else if(this.attackButton2.isDown && this.playerNumber === 1){
+      else if(this.attackButton2.isDown && this.character.getPlayerNumber() === 1){
           if(this.attackAvailable === true){
             this.firebolt = this.rightFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
@@ -51,7 +50,7 @@ class Attack {
             this.attackAvailable = false;
           }
       }
-      else if(this.attackButton3.isDown && this.playerNumber === 2){
+      else if(this.attackButton3.isDown && this.character.getPlayerNumber() === 2){
           if(this.attackAvailable === true){
             this.firebolt = this.leftFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
@@ -64,7 +63,7 @@ class Attack {
             this.attackAvailable = false;
           }
       }
-      else if(this.attackButton4.isDown && this.playerNumber === 2){
+      else if(this.attackButton4.isDown && this.character.getPlayerNumber() === 2){
           if(this.attackAvailable === true){
             this.firebolt = this.rightFirebolts[this.fireBallCounter++];
             this.firebolt.x = this.player.x;
@@ -78,7 +77,7 @@ class Attack {
           }
       }
    
-      if(this.playerNumber === 1){
+      if(this.character.getPlayerNumber() === 1){
         for(var i = 0; i < this.leftFirebolts.length; i++){
             this.character.getPlayerCollision(). checkCollisionFireBall(this.leftFirebolts[i]);
           }
@@ -86,7 +85,7 @@ class Attack {
             this.character.getPlayerCollision(). checkCollisionFireBall(this.rightFirebolts[i]);
           }
       }
-      else if(this.playerNumber === 2){
+      else if(this.character.getPlayerNumber() === 2){
           for(var i = 0; i < this.leftFirebolts.length; i++){
             this.character.getPlayerCollision(). checkCollisionFireBall(this.leftFirebolts[i]);
           }

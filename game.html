@@ -39,7 +39,7 @@ function preload() {
     // Manager Scripts
     game.load.script('PlayerInteractionManager', 'js/Managers/PlayerInteractionManager.js');
     game.load.script('CharacterGUI', 'js/GUI/CharacterGUI.js');
-    
+    game.load.script('PlayerDelegateManager', 'js/Managers/PlayerDelegateManager.js');
     
     // Game Interface Images
     game.load.image ('WelcomeScreen','assets/WelcomeScreen.png');
@@ -47,6 +47,7 @@ function preload() {
     game.load.image ('ControlsButton','assets/controls_button.png');
     game.load.image ('CharacterSelect','assets/CharacterSelect.png');
     game.load.image ('SelectButton','assets/SelectButton.png');
+    game.load.spritesheet('numberSpriteSheet', 'assets/numberSpriteSheet.png', 96, 96);
     
     
     // Casting images
@@ -65,6 +66,11 @@ function preload() {
     
     // Character Profile Images
     game.load.image('MinatoProfile', 'assets/CharacterPictures/MinatoProfile.png');
+    game.load.image('KaeruProfile', 'assets/CharacterPictures/KaeruProfile.png');
+    game.load.image('NekoProfile', 'assets/CharacterPictures/NekoProfile.png');
+    game.load.image('NezumiProfile', 'assets/CharacterPictures/NezumiProfile.png');
+    game.load.image('SakanaProfile', 'assets/CharacterPictures/SakanaProfile.png');
+    game.load.image('TanukiProfile', 'assets/CharacterPictures/TanukiProfile.png');
     
     //Controller
     game.load.script('Controller', 'js/Controller.js');

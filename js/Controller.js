@@ -30,12 +30,9 @@ var Controller = {
         character1 = new Character(game, 1);
         character2 = new Character(game, 2);
     
-        PlayerInteractionManager.setPlayer1(character1);
-        PlayerInteractionManager.setPlayer2(character2);
-        PlayerInteractionManager.init();
-    
-        characterGUI = new CharacterGUI();
-        characterGUI.placeProfileImage(); 
+        PlayerInteractionManager.setCharacter1(character1);
+        PlayerInteractionManager.setCharacter2(character2);
+        PlayerInteractionManager.init(); 
     
         character1.initCollision();
         character2.initCollision();
@@ -45,5 +42,11 @@ var Controller = {
             character1.update();
             character2.update();
         }
+    },
+    setPlayer1: function(player1){
+        this.player1 = player1;
+    },
+    setPlayer2: function(player2){
+        this.player2 = player2;
     }
 }

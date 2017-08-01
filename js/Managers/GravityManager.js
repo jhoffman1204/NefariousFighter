@@ -8,6 +8,6 @@ class Gravity {
       
   } 
   enableGravity(player){
-     player.body.gravity.y = 1000;
+     player.body.gravity.y = 3000;
   }
 }
